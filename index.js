@@ -67,11 +67,6 @@ app.patch("/sensor/:id", (req, res) => {
     if (value) sensor.value = value;
 
     res.send(`User with the id ${id} has been changed!`);
-
-    if (id == sensor.id && value == false) {
-        console.log(`${id} is updated`);
-        sendSerialData1()
-    }
 });
 
 app.listen(port, () => {
